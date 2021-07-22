@@ -1,15 +1,14 @@
 #![no_std]
 #![no_main]
 /// This program is going to blink all the LEDs of stm32f3 board with 1 sec of delay.
-///
-/// Function mycrate() contains the implementation to cover the led challenge of discovery book.
 use my_auxillary::*;
+
 /// This is starting point of the no_main program.
 #[entry]
 fn main() -> ! {
     let mut counter = 0;
-    let (mut led, mut delay) = mycrate();
-
+    let (leds, mut delay) = mycrate();
+    let mut led = leds.into_array();
     loop {
         while counter < counter + 1 {
             let next = counter % 8;

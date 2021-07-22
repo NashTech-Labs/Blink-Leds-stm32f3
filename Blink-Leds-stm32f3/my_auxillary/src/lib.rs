@@ -1,34 +1,30 @@
 
 #![no_std]
 /// This program is lib for main program which provide the implementation to blink leds in stm32f3 board.
-pub use  panic_itm;
+use  panic_itm as _;
 pub use cortex_m_rt::entry;
 pub use stm32f3_discovery::{
     stm32f3xx_hal,
     leds::Leds,
-    switch_hal::{ActiveHigh, OutputSwitch, Switch},
+    switch_hal::{OutputSwitch, Switch},
 };
 pub use stm32f3xx_hal::{
-    gpio::{gpioe, Output, PushPull},
     prelude::*,
     stm32,
     delay::Delay
 };
-pub use cortex_m::peripheral::SYST;
+
 
 /// This program contains the implementation for the blinking of LEDS project.
 ///
-///
-/// LedArray is used to provide the leds an array structure.
-pub type  LedArray= [Switch<gpioe::PEx<Output<PushPull>>, ActiveHigh>; 8];
 /// Fn mycrate() -> this function contains the device peripheral, core peripheral and delay.
 ///
 /// #Return
 ///
-/// Tuple of (LedArray, Delay)
-/// LedArray-> All the leds in output mode as array.
+/// Tuple of (Led, Delay)
+/// Led-> All the leds in output mode.
 /// Delay -> providing the time period to stop the process for 1 sec)
-pub fn mycrate() -> (LedArray,Delay) {
+pub fn mycrate() -> (Leds,Delay) {
     // Setting up device peripheral to get the access of the f3 board peripherals.
     let device_peripheral = stm32::Peripherals::take().unwrap();
     // Setting up the Reset & Clock Control to get the access of system clock which will be used
@@ -57,5 +53,5 @@ pub fn mycrate() -> (LedArray,Delay) {
         &mut gpioe.otyper,
     );
     // providing leds in an array type using into_array() function.
-    (leds.into_array(),delay)
+    (leds,delay)
 }
