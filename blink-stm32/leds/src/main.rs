@@ -1,8 +1,9 @@
 #![no_std]
 #![no_main]
-/// This program is going to blink all the LEDs of stm32f3 board with 1 sec of delay.
-use my_auxillary::*;
 
+use blink_stm32::config::initialization::*;
+/// This program is going to blink all the LEDs of stm32f3 board with 1 sec of delay.
+///
 /// This is starting point of the no_main program.
 #[entry]
 fn main() -> ! {

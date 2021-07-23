@@ -1,5 +1,5 @@
 [package]
-name = "my_auxillary"
+name = "blink-stm32"
 version = "0.1.0"
 edition = "2018"
 
@@ -7,7 +7,3 @@ edition = "2018"
 
 [dependencies]
 
-cortex-m-rt = "0.6.13"
-stm32f3-discovery = "0.6.0"
-panic-itm = "0.4.2"
-cortex-m = "0.6.4"

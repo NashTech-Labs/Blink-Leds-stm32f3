@@ -2,7 +2,7 @@
 .#*
 .gdb_history
 /template
-Cargo.lock
+../Cargo.lock
 book/
 target/
-.idea
+.idea/
