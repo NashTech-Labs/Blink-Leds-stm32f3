@@ -27,7 +27,8 @@ First, we need to determine what version of gdb you have that is capable of debu
 
 Run this command from the new terminal in same directory.
 
-`gdb-multiarch -q -ex "target remote :3333" target/thumbv7em-none-eabihf/debug/Blink-Leds-stm32f3`
+`gdb-multiarch -q -ex "target remote :3333" target/thumbv7em-none-eabihf/debug/blink-stm32
+`
 
 ### Failing Case
 If you face any error like this-
