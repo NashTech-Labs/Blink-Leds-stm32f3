@@ -1,7 +1,9 @@
 #![no_std]
 #![no_main]
 
-use blink_stm32::config::initialization::*;
+use blink_stm32::config::initialization::{mycrate,entry, OutputSwitch};
+use stm32f3_discovery::stm32f3xx_hal::prelude::*;
+
 /// This program is going to blink all the LEDs of stm32f3 board with 1 sec of delay.
 ///
 /// This is starting point of the no_main program.
